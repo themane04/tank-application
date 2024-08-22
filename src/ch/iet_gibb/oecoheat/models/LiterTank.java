@@ -20,9 +20,74 @@ public class LiterTank {
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public LiterTank(String name, double volumeInLiters, double temperature, double heatedEnergyPerDay) {
+        if (volumeInLiters <= 0) {
+            throw new IllegalArgumentException("Volume in liters must be greater than zero.");
+        }
+        if (temperature <= 0 || temperature > 30) {
+            throw new IllegalArgumentException("Temperature must be between 1 and 30 degrees Celsius.");
+        }
+        if (heatedEnergyPerDay <= 0) {
+            throw new IllegalArgumentException("Heated energy per day must be greater than zero.");
+        }
         this.name = name;
         this.volumeInLiters = volumeInLiters;
         this.temperature = temperature;
+        this.heatedEnergyPerDay = heatedEnergyPerDay;
+    }
+
+    /**
+     * Getter for the name of the tank.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Setter for the name of the tank.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Getter for the volume of the tank in liters.
+     */
+    public double getVolumeInLiters() {
+        return volumeInLiters;
+    }
+
+    /**
+     * Setter for the volume of the tank in liters.
+     */
+    public void setVolumeInLiters(double volumeInLiters) {
+        this.volumeInLiters = volumeInLiters;
+    }
+
+    /**
+     * Getter for the temperature the water can reach in Celsius.
+     */
+    public double getTemperature() {
+        return temperature;
+    }
+
+    /**
+     * Setter for the temperature the water can reach in Celsius.
+     */
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
+
+    /**
+     * Getter for the energy required per day in kWh.
+     */
+    public double getHeatedEnergyPerDay() {
+        return heatedEnergyPerDay;
+    }
+
+    /**
+     * Setter for the energy required per day in kWh.
+     */
+    public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
         this.heatedEnergyPerDay = heatedEnergyPerDay;
     }
 

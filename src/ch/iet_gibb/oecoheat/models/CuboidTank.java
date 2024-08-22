@@ -23,11 +23,105 @@ public class CuboidTank {
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public CuboidTank(String name, double width, double height, double depth, double temperature, double heatedEnergyPerDay) {
+        if (width <= 0 || height <= 0 || depth <= 0) {
+            throw new IllegalArgumentException("Dimensions must be greater than zero.");
+        }
+        if (temperature <= 0 || temperature > 30) {
+            throw new IllegalArgumentException("Temperature must be between 1 and 30 degrees Celsius.");
+        }
+        if (heatedEnergyPerDay <= 0) {
+            throw new IllegalArgumentException("Heated energy per day must be greater than zero.");
+        }
+
         this.name = name;
         this.width = width;
         this.height = height;
         this.depth = depth;
         this.temperature = temperature;
+        this.heatedEnergyPerDay = heatedEnergyPerDay;
+    }
+
+    /**
+     * Getter for the name of the tank.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Setter for the name of the tank.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Getter for the width of the cuboid tank.
+     */
+    public double getWidth() {
+        return width;
+    }
+
+    /**
+     * Setter for the width of the cuboid tank.
+     */
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    /**
+     * Getter for the height of the cuboid tank.
+     */
+    public double getHeight() {
+        return height;
+    }
+
+    /**
+     * Setter for the height of the cuboid tank.
+     */
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    /**
+     * Getter for the depth of the cuboid tank.
+     */
+    public double getDepth() {
+        return depth;
+    }
+
+    /**
+     * Setter for the depth of the cuboid tank.
+     */
+    public void setDepth(double depth) {
+        this.depth = depth;
+    }
+
+    /**
+     * Getter for the temperature of the water in the tank.
+     */
+    public double getTemperature() {
+        return temperature;
+    }
+
+    /**
+     * Setter for the temperature of the water in the tank.
+     */
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
+
+    /**
+     * Getter for the heated energy per day.
+     */
+    public double getHeatedEnergyPerDay() {
+        return heatedEnergyPerDay;
+    }
+
+    /**
+     * Setter for the heated energy per day.
+     */
+    public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
         this.heatedEnergyPerDay = heatedEnergyPerDay;
     }
 
