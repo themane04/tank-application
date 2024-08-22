@@ -1,5 +1,7 @@
 package ch.iet_gibb.oecoheat.models;
 
+import ch.iet_gibb.oecoheat.utils.ErrorMessage;
+
 /**
  * The CylinderTank class represents a cylindrical water storage tank.
  * It provides methods to calculate the stored energy and the number of days the tank can provide heating.
@@ -22,13 +24,13 @@ public class CylinderTank {
      */
     public CylinderTank(String name, double radius, double height, double temperature, double heatedEnergyPerDay) {
         if (radius <= 0 || height <= 0) {
-            throw new IllegalArgumentException("Radius and height must be greater than zero.");
+            throw new IllegalArgumentException(ErrorMessage.radiusAndHeightRange);
         }
         if (temperature <= 0 || temperature > 30) {
-            throw new IllegalArgumentException("Temperature must be between 1 and 30 degrees Celsius.");
+            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
         }
         if (heatedEnergyPerDay <= 0) {
-            throw new IllegalArgumentException("Heated energy per day must be greater than zero.");
+            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
         }
         this.name = name;
         this.radius = radius;

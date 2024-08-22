@@ -1,5 +1,7 @@
 package ch.iet_gibb.oecoheat.models;
 
+import ch.iet_gibb.oecoheat.utils.ErrorMessage;
+
 /**
  * The CuboidTank class represents a cuboid-shaped water storage tank.
  * It provides methods to calculate the stored energy and the number of days the tank can provide heating.
@@ -24,13 +26,13 @@ public class CuboidTank {
      */
     public CuboidTank(String name, double width, double height, double depth, double temperature, double heatedEnergyPerDay) {
         if (width <= 0 || height <= 0 || depth <= 0) {
-            throw new IllegalArgumentException("Dimensions must be greater than zero.");
+            throw new IllegalArgumentException(ErrorMessage.dimensionsRange);
         }
         if (temperature <= 0 || temperature > 30) {
-            throw new IllegalArgumentException("Temperature must be between 1 and 30 degrees Celsius.");
+            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
         }
         if (heatedEnergyPerDay <= 0) {
-            throw new IllegalArgumentException("Heated energy per day must be greater than zero.");
+            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
         }
 
         this.name = name;

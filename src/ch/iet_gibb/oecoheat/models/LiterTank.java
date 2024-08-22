@@ -1,5 +1,7 @@
 package ch.iet_gibb.oecoheat.models;
 
+import ch.iet_gibb.oecoheat.utils.ErrorMessage;
+
 /**
  * The LiterTank class represents a water storage tank with a known volume in liters.
  * It provides methods to calculate the stored energy and the number of days the tank can provide heating.
@@ -21,13 +23,13 @@ public class LiterTank {
      */
     public LiterTank(String name, double volumeInLiters, double temperature, double heatedEnergyPerDay) {
         if (volumeInLiters <= 0) {
-            throw new IllegalArgumentException("Volume in liters must be greater than zero.");
+            throw new IllegalArgumentException(ErrorMessage.volumeInLitersRange);
         }
         if (temperature <= 0 || temperature > 30) {
-            throw new IllegalArgumentException("Temperature must be between 1 and 30 degrees Celsius.");
+            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
         }
         if (heatedEnergyPerDay <= 0) {
-            throw new IllegalArgumentException("Heated energy per day must be greater than zero.");
+            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
         }
         this.name = name;
         this.volumeInLiters = volumeInLiters;
