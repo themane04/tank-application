@@ -1,4 +1,4 @@
-package ch.iet_gibb.labelcreator.application;
+package ch.iet_gibb.oecoheat.application;
 
 public class LabelCreator {
 
