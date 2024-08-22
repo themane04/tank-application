@@ -12,7 +12,6 @@ public class LiterTank {
     protected double temperature;
     protected double heatedEnergyPerDay;
 
-
     /**
      * Constructor to initialize a LiterTank object with the given parameters.
      *
@@ -111,5 +110,16 @@ public class LiterTank {
      */
     public double calculateHeatingDays() {
         return calculateStoredEnergy() / (heatedEnergyPerDay * 3600);
+    }
+
+    /**
+     * Returns a string representation of the tank.
+     */
+    @Override
+    public String toString() {
+        return "Tank Name: " + name + "\n" +
+                "Fassungsvermögen: " + volumeInLiters + " Liter\n" +
+                "Gespeicherte Energie: " + calculateStoredEnergy() / 3600 + " kWh\n" + // kWh conversion
+                "Anzahl Heiztage: " + calculateHeatingDays() + " Tage\n";
     }
 }

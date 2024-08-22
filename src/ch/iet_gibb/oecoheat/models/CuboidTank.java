@@ -13,6 +13,7 @@ public class CuboidTank {
     protected double depth;
     protected double temperature;
     protected double heatedEnergyPerDay;
+    protected double volumeFormula = width * height * depth;
 
     /**
      * Constructor to initialize a CuboidTank object with the given parameters.
@@ -133,10 +134,9 @@ public class CuboidTank {
      *
      * @return The stored energy in the tank in kilojoules (kJ).
      */
-    public double calculateVolume() {
-        double volume = width * height * depth;
+    public double calculateStoredEnergy() {
         double specificHeatCapacity = 4.18;
-        return volume * temperature * specificHeatCapacity;
+        return volumeFormula * temperature * specificHeatCapacity;
     }
 
     /**
@@ -146,6 +146,26 @@ public class CuboidTank {
      * @return The number of days the tank can provide heating.
      */
     public double calculateHeatingDays() {
-        return calculateVolume() / (heatedEnergyPerDay * 3600);
+        return calculateStoredEnergy() / (heatedEnergyPerDay * 3600);
+    }
+
+    /**
+     * Calculates the volume of the cuboid tank in liters.
+     *
+     * @return The volume of the tank in liters.
+     */
+    public double calculateVolume() {
+        return volumeFormula * 1000; // Liter conversion
+    }
+
+    /**
+     * Returns a string representation of the CuboidTank object.
+     */
+    @Override
+    public String toString() {
+        return "Tank Name: " + name + "\n" +
+                "Fassungsvermögen: " + calculateVolume() + " Liter\n" +
+                "Gespeicherte Energie: " + calculateStoredEnergy() / 3600 + " kWh\n" + // kWh conversion
+                "Anzahl Heiztage: " + calculateHeatingDays() + " Tage\n";
     }
 }
