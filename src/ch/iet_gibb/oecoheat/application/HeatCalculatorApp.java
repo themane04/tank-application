@@ -4,6 +4,8 @@ import ch.iet_gibb.oecoheat.models.CuboidTank;
 import ch.iet_gibb.oecoheat.models.CylinderTank;
 import ch.iet_gibb.oecoheat.models.LiterTank;
 
+import static ch.iet_gibb.oecoheat.utils.Color.*;
+
 /**
  * The main class for the HeatCalculator application.
  * This class serves as the entry point for the application.
@@ -28,16 +30,16 @@ public class HeatCalculatorApp {
         cuboidTank.setTemperature(27);
         cuboidTank.setHeatedEnergyPerDay(6);
 
-        System.out.println("\nCuboidTank Parameters:");
-        System.out.println("\nName: " + cuboidTank.getName());
-        System.out.println("Width: " + cuboidTank.getWidth());
-        System.out.println("Height: " + cuboidTank.getHeight());
-        System.out.println("Depth: " + cuboidTank.getDepth());
-        System.out.println("Temperature: " + cuboidTank.getTemperature());
-        System.out.println("Heated Energy Per Day: " + cuboidTank.getHeatedEnergyPerDay());
+        System.out.println(ANSI_BLUE + "\nCuboidTank Parameters:" + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "\nName: " + cuboidTank.getName() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Width: " + cuboidTank.getWidth() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Height: " + cuboidTank.getHeight() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Depth: " + cuboidTank.getDepth() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Temperature: " + cuboidTank.getTemperature() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Heated Energy Per Day: " + cuboidTank.getHeatedEnergyPerDay() + ANSI_RESET);
 
-        System.out.println("\nCuboidTank toString Output:");
-        System.out.println(cuboidTank);
+        System.out.println(ANSI_WHITE + "\nCuboidTank toString Output:" + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "\n" + cuboidTank + ANSI_RESET);
 
         // Create a CylinderTank object and set its parameters
         CylinderTank cylinderTank = new CylinderTank("Cylinder Tank", 1.5, 4.0, 28, 7);
@@ -47,15 +49,15 @@ public class HeatCalculatorApp {
         cylinderTank.setTemperature(29);
         cylinderTank.setHeatedEnergyPerDay(8);
 
-        System.out.println("\nCylinderTank Parameters:");
-        System.out.println("\nName: " + cylinderTank.getName());
-        System.out.println("Radius: " + cylinderTank.getRadius());
-        System.out.println("Height: " + cylinderTank.getHeight());
-        System.out.println("Temperature: " + cylinderTank.getTemperature());
-        System.out.println("Heated Energy Per Day: " + cylinderTank.getHeatedEnergyPerDay());
+        System.out.println(ANSI_BLUE + "\nCylinderTank Parameters:" + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "\nName: " + cylinderTank.getName() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Radius: " + cylinderTank.getRadius() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Height: " + cylinderTank.getHeight() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Temperature: " + cylinderTank.getTemperature() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Heated Energy Per Day: " + cylinderTank.getHeatedEnergyPerDay() + ANSI_RESET);
 
-        System.out.println("\nCylinderTank toString Output:");
-        System.out.println(cylinderTank);
+        System.out.println(ANSI_WHITE + "\nCylinderTank toString Output:" + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "\n" + cylinderTank + ANSI_RESET);
 
         // Create a LiterTank object and set its parameters
         LiterTank literTank = new LiterTank("Liter Tank", 5000, 26, 4);
@@ -64,13 +66,13 @@ public class HeatCalculatorApp {
         literTank.setTemperature(28);
         literTank.setHeatedEnergyPerDay(5);
 
-        System.out.println("\nLiterTank Parameters:");
-        System.out.println("\nName: " + literTank.getName());
-        System.out.println("Volume in Liters: " + literTank.getVolumeInLiters());
-        System.out.println("Temperature: " + literTank.getTemperature());
-        System.out.println("Heated Energy Per Day: " + literTank.getHeatedEnergyPerDay());
+        System.out.println(ANSI_BLUE + "\nLiterTank Parameters:" + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "\nName: " + literTank.getName() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Volume in Liters: " + literTank.getVolumeInLiters() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Temperature: " + literTank.getTemperature() + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "Heated Energy Per Day: " + literTank.getHeatedEnergyPerDay() + ANSI_RESET);
 
-        System.out.println("\nLiterTank toString Output:");
-        System.out.println(literTank);
+        System.out.println(ANSI_WHITE + "\nLiterTank toString Output:" + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "\n" + literTank + ANSI_RESET);
     }
 }
