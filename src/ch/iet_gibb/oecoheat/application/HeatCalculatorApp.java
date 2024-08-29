@@ -21,9 +21,11 @@ public class HeatCalculatorApp {
      */
     public static void main(String[] args) {
 
+        System.out.println(tankSeparator);
+
         // Create a CuboidTank object and set its parameters
         CuboidTank cuboidTank = new CuboidTank("Cuboid Tank", 2.0, 3.0, 1.5, 25, 5);
-        cuboidTank.setName("My new Cuboid Tank");
+        cuboidTank.setName("Solar Heated Cuboid Tank");
         cuboidTank.setWidth(2.5);
         cuboidTank.setHeight(3.5);
         cuboidTank.setDepth(2.0);
@@ -41,9 +43,11 @@ public class HeatCalculatorApp {
         System.out.println(ANSI_WHITE + "\nCuboidTank toString Output:" + ANSI_RESET);
         System.out.println(ANSI_CYAN + "\n" + cuboidTank + ANSI_RESET);
 
+        System.out.println(tankSeparator);
+
         // Create a CylinderTank object and set its parameters
         CylinderTank cylinderTank = new CylinderTank("Cylinder Tank", 1.5, 4.0, 28, 7);
-        cylinderTank.setName("My new Cylinder Tank");
+        cylinderTank.setName("Underground Cylinder Tank");
         cylinderTank.setRadius(2.0);
         cylinderTank.setHeight(4.5);
         cylinderTank.setTemperature(29);
@@ -59,9 +63,11 @@ public class HeatCalculatorApp {
         System.out.println(ANSI_WHITE + "\nCylinderTank toString Output:" + ANSI_RESET);
         System.out.println(ANSI_CYAN + "\n" + cylinderTank + ANSI_RESET);
 
+        System.out.println(tankSeparator);
+
         // Create a LiterTank object and set its parameters
         LiterTank literTank = new LiterTank("Liter Tank", 5000, 26, 4);
-        literTank.setName("My new Liter Tank");
+        literTank.setName("Backup Water Reservoir");
         literTank.setVolumeInLiters(5500);
         literTank.setTemperature(28);
         literTank.setHeatedEnergyPerDay(5);
@@ -74,5 +80,7 @@ public class HeatCalculatorApp {
 
         System.out.println(ANSI_WHITE + "\nLiterTank toString Output:" + ANSI_RESET);
         System.out.println(ANSI_CYAN + "\n" + literTank + ANSI_RESET);
+
+        System.out.println(tankSeparator);
     }
 }
