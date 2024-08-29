@@ -26,7 +26,12 @@ public class CylinderTank {
      * @param temperature        The temperature the water can reach in Celsius.
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
-    public CylinderTank(String name, double radius, double height, double temperature, double heatedEnergyPerDay) {
+    public CylinderTank(
+            String name,
+            double radius,
+            double height,
+            double temperature,
+            double heatedEnergyPerDay) {
         this.name = name;
         this.radius = radius;
         this.height = height;

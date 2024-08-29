@@ -24,7 +24,11 @@ public class LiterTank {
      * @param temperature        The temperature the water can reach in Celsius.
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
-    public LiterTank(String name, double volumeInLiters, double temperature, double heatedEnergyPerDay) {
+    public LiterTank(
+            String name,
+            double volumeInLiters,
+            double temperature,
+            double heatedEnergyPerDay) {
         this.name = name;
         this.volumeInLiters = volumeInLiters;
         this.temperature = temperature;

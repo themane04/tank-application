@@ -18,6 +18,7 @@ public class HeatCalculatorApp {
      * The main method that starts the application.
      */
     public static void main(String[] args) {
+
         // Create a CuboidTank object and set its parameters
         CuboidTank cuboidTank = new CuboidTank("Cuboid Tank", 2.0, 3.0, 1.5, 25, 5);
         cuboidTank.setName("My new Cuboid Tank");
