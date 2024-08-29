@@ -171,8 +171,8 @@ public class CylinderTank {
     @Override
     public String toString() {
         return "Tank Name: " + name + "\n" +
-                "Fassungsvermögen: " + calculateVolume() + " Liter\n" +
-                "Gespeicherte Energie: " + calculateStoredEnergy() / 3600 + " kWh\n" + // kWh conversion
-                "Anzahl Heiztage: " + calculateHeatingDays() + " Tage\n";
+                "Capacity: " + calculateVolume() + " liters\n" +
+                "Stored Energy: " + calculateStoredEnergy() / 3600 + " kWh\n" + // kWh conversion
+                "Number of Heating Days: " + calculateHeatingDays() + " days\n";
     }
 }
