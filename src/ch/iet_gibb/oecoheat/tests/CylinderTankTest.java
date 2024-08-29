@@ -1,42 +1,54 @@
-package ch.iet_gibb.oecoheat.test;
+package ch.iet_gibb.oecoheat.tests;
 
-import ch.iet_gibb.oecoheat.models.LiterTank;
+import ch.iet_gibb.oecoheat.models.CylinderTank;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class LiterTankTest {
+class CylinderTankTest {
 
-    private LiterTank tank;
+    private CylinderTank tank;
 
     @BeforeEach
     void setUp() {
-        tank = new LiterTank("TestLiterTank", 5000, 25, 8);
+        tank = new CylinderTank("TestCylinderTank", 2, 5, 25, 8);
     }
 
     @Test
     void getName() {
-        assertEquals("TestLiterTank", tank.getName());
+        assertEquals("TestCylinderTank", tank.getName());
     }
 
     @Test
     void setName() {
-        tank.setName("NewTestLiterTank");
-        assertEquals("NewTestLiterTank", tank.getName());
+        tank.setName("NewTestCylinderTank");
+        assertEquals("NewTestCylinderTank", tank.getName());
     }
 
     @Test
-    void getVolumeInLiters() {
-        assertEquals(5000, tank.getVolumeInLiters());
+    void getRadius() {
+        assertEquals(2, tank.getRadius());
     }
 
     @Test
-    void setVolumeInLiters() {
-        tank.setVolumeInLiters(6000);
-        assertEquals(6000, tank.getVolumeInLiters());
-        assertThrows(IllegalArgumentException.class, () -> tank.setVolumeInLiters(0));
+    void setRadius() {
+        tank.setRadius(3);
+        assertEquals(3, tank.getRadius());
+        assertThrows(IllegalArgumentException.class, () -> tank.setRadius(0));
+    }
+
+    @Test
+    void getHeight() {
+        assertEquals(5, tank.getHeight());
+    }
+
+    @Test
+    void setHeight() {
+        tank.setHeight(6);
+        assertEquals(6, tank.getHeight());
+        assertThrows(IllegalArgumentException.class, () -> tank.setHeight(0));
     }
 
     @Test
@@ -66,7 +78,7 @@ class LiterTankTest {
     @Test
     void calculateStoredEnergy() {
         // Expected calculation: volume (in cubic meters) * temperature * specific heat capacity (4.18 kJ/kg·°C)
-        double expectedEnergy = (tank.getVolumeInLiters() / 1000) * tank.getTemperature() * 4.18;
+        double expectedEnergy = tank.calculateVolume() * tank.getTemperature() * 4.18;
         assertEquals(expectedEnergy, tank.calculateStoredEnergy());
     }
 

@@ -1,47 +1,47 @@
-package ch.iet_gibb.oecoheat.test;
+package ch.iet_gibb.oecoheat.tests;
 
-import ch.iet_gibb.oecoheat.models.CylinderTank;
+import ch.iet_gibb.oecoheat.models.CuboidTank;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class CylinderTankTest {
+class CuboidTankTest {
 
-    private CylinderTank tank;
+    private CuboidTank tank;
 
     @BeforeEach
     void setUp() {
-        tank = new CylinderTank("TestCylinderTank", 2, 5, 25, 8);
+        tank = new CuboidTank("TestCuboidTank", 2, 3, 4, 25, 5);
     }
 
     @Test
     void getName() {
-        assertEquals("TestCylinderTank", tank.getName());
+        assertEquals("TestCuboidTank", tank.getName());
     }
 
     @Test
     void setName() {
-        tank.setName("NewTestCylinderTank");
-        assertEquals("NewTestCylinderTank", tank.getName());
+        tank.setName("NewTestCuboidTank");
+        assertEquals("NewTestCuboidTank", tank.getName());
     }
 
     @Test
-    void getRadius() {
-        assertEquals(2, tank.getRadius());
+    void getWidth() {
+        assertEquals(2, tank.getWidth());
     }
 
     @Test
-    void setRadius() {
-        tank.setRadius(3);
-        assertEquals(3, tank.getRadius());
-        assertThrows(IllegalArgumentException.class, () -> tank.setRadius(0));
+    void setWidth() {
+        tank.setWidth(5);
+        assertEquals(5, tank.getWidth());
+        assertThrows(IllegalArgumentException.class, () -> tank.setWidth(0));
     }
 
     @Test
     void getHeight() {
-        assertEquals(5, tank.getHeight());
+        assertEquals(3, tank.getHeight());
     }
 
     @Test
@@ -49,6 +49,18 @@ class CylinderTankTest {
         tank.setHeight(6);
         assertEquals(6, tank.getHeight());
         assertThrows(IllegalArgumentException.class, () -> tank.setHeight(0));
+    }
+
+    @Test
+    void getDepth() {
+        assertEquals(4, tank.getDepth());
+    }
+
+    @Test
+    void setDepth() {
+        tank.setDepth(7);
+        assertEquals(7, tank.getDepth());
+        assertThrows(IllegalArgumentException.class, () -> tank.setDepth(0));
     }
 
     @Test
@@ -65,13 +77,13 @@ class CylinderTankTest {
 
     @Test
     void getHeatedEnergyPerDay() {
-        assertEquals(8, tank.getHeatedEnergyPerDay());
+        assertEquals(5, tank.getHeatedEnergyPerDay());
     }
 
     @Test
     void setHeatedEnergyPerDay() {
-        tank.setHeatedEnergyPerDay(10);
-        assertEquals(10, tank.getHeatedEnergyPerDay());
+        tank.setHeatedEnergyPerDay(8);
+        assertEquals(8, tank.getHeatedEnergyPerDay());
         assertThrows(IllegalArgumentException.class, () -> tank.setHeatedEnergyPerDay(0));
     }
 
@@ -87,5 +99,11 @@ class CylinderTankTest {
         // Expected calculation: storedEnergy / (heatedEnergyPerDay * 3600)
         double expectedHeatingDays = tank.calculateStoredEnergy() / (tank.getHeatedEnergyPerDay() * 3600);
         assertEquals(expectedHeatingDays, tank.calculateHeatingDays());
+    }
+
+    @Test
+    void calculateVolume() {
+        double expectedVolume = 2 * 3 * 4 * 1000;
+        assertEquals(expectedVolume, tank.calculateVolume());
     }
 }
