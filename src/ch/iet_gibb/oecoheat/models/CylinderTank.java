@@ -27,15 +27,6 @@ public class CylinderTank {
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public CylinderTank(String name, double radius, double height, double temperature, double heatedEnergyPerDay) {
-        if (radius <= 0 || height <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.radiusAndHeightRange);
-        }
-        if (temperature <= 0 || temperature > 30) {
-            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
-        }
-        if (heatedEnergyPerDay <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
-        }
         this.name = name;
         this.radius = radius;
         this.height = height;
@@ -72,6 +63,9 @@ public class CylinderTank {
      * @param radius The radius of the tank in meters.
      */
     public void setRadius(double radius) {
+        if (radius <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.radiusRange);
+        }
         this.radius = radius;
     }
 
@@ -88,6 +82,9 @@ public class CylinderTank {
      * @param height The height of the tank in meters.
      */
     public void setHeight(double height) {
+        if (height <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.heightRange);
+        }
         this.height = height;
     }
 
@@ -104,6 +101,9 @@ public class CylinderTank {
      * @param temperature The temperature the water can reach in Celsius.
      */
     public void setTemperature(double temperature) {
+        if (temperature <= 0 || temperature > 30) {
+            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
+        }
         this.temperature = temperature;
     }
 
@@ -120,6 +120,9 @@ public class CylinderTank {
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
+        if (heatedEnergyPerDay <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
+        }
         this.heatedEnergyPerDay = heatedEnergyPerDay;
     }
 

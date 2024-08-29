@@ -25,15 +25,6 @@ public class LiterTank {
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public LiterTank(String name, double volumeInLiters, double temperature, double heatedEnergyPerDay) {
-        if (volumeInLiters <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.volumeInLitersRange);
-        }
-        if (temperature <= 0 || temperature > 30) {
-            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
-        }
-        if (heatedEnergyPerDay <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
-        }
         this.name = name;
         this.volumeInLiters = volumeInLiters;
         this.temperature = temperature;
@@ -69,6 +60,9 @@ public class LiterTank {
      * @param volumeInLiters The volume of the tank in liters.
      */
     public void setVolumeInLiters(double volumeInLiters) {
+        if (volumeInLiters <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.volumeRange);
+        }
         this.volumeInLiters = volumeInLiters;
     }
 
@@ -85,6 +79,9 @@ public class LiterTank {
      * @param temperature The temperature the water can reach in Celsius.
      */
     public void setTemperature(double temperature) {
+        if (temperature < 1 || temperature > 30) {
+            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
+        }
         this.temperature = temperature;
     }
 
@@ -101,6 +98,9 @@ public class LiterTank {
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
+        if (heatedEnergyPerDay <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
+        }
         this.heatedEnergyPerDay = heatedEnergyPerDay;
     }
 
@@ -126,6 +126,7 @@ public class LiterTank {
 
     /**
      * Returns a string representation of the L
+     *
      * @return The string representation of the tank.
      */
     @Override

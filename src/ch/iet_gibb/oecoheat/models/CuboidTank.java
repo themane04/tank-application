@@ -28,17 +28,13 @@ public class CuboidTank {
      * @param temperature        The temperature the water can reach in Celsius.
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
-    public CuboidTank(String name, double width, double height, double depth, double temperature, double heatedEnergyPerDay) {
-        if (width <= 0 || height <= 0 || depth <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.dimensionsRange);
-        }
-        if (temperature <= 0 || temperature > 30) {
-            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
-        }
-        if (heatedEnergyPerDay <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
-        }
-
+    public CuboidTank(
+            String name,
+            double width,
+            double height,
+            double depth,
+            double temperature,
+            double heatedEnergyPerDay) {
         this.name = name;
         this.width = width;
         this.height = height;
@@ -76,6 +72,9 @@ public class CuboidTank {
      * @param width The width of the tank in meters.
      */
     public void setWidth(double width) {
+        if (width <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.widthRange);
+        }
         this.width = width;
     }
 
@@ -92,6 +91,9 @@ public class CuboidTank {
      * @param height The height of the tank in meters.
      */
     public void setHeight(double height) {
+        if (height <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.heightRange);
+        }
         this.height = height;
     }
 
@@ -108,6 +110,9 @@ public class CuboidTank {
      * @param depth The depth of the tank in meters.
      */
     public void setDepth(double depth) {
+        if (depth <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.depthRange);
+        }
         this.depth = depth;
     }
 
@@ -124,6 +129,9 @@ public class CuboidTank {
      * @param temperature The temperature the water can reach in Celsius.
      */
     public void setTemperature(double temperature) {
+        if (temperature <= 0 || temperature > 30) {
+            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
+        }
         this.temperature = temperature;
     }
 
@@ -140,6 +148,9 @@ public class CuboidTank {
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
+        if (heatedEnergyPerDay <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
+        }
         this.heatedEnergyPerDay = heatedEnergyPerDay;
     }
 
