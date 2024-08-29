@@ -100,7 +100,7 @@ public class LiterTank {
     public double calculateStoredEnergy() {
         double volume = volumeInLiters / 1000;
         double specificHeatCapacity = 4.18;
-        return volumeInLiters * temperature * specificHeatCapacity;
+        return volume * temperature * specificHeatCapacity;
     }
 
     /**

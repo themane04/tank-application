@@ -12,7 +12,6 @@ public class CylinderTank {
     protected double height;
     protected double temperature;
     protected double heatedEnergyPerDay;
-    protected double volumeFormula = Math.PI * Math.pow(radius, 2) * height;
 
     /**
      * Constructor to initialize a CylinderTank object with the given parameters.
@@ -117,8 +116,9 @@ public class CylinderTank {
      * @return The stored energy in the tank in kilojoules (kJ).
      */
     public double calculateStoredEnergy() {
+        double volume = calculateVolume();
         double specificHeatCapacity = 4.18;
-        return volumeFormula * temperature * specificHeatCapacity;
+        return volume * temperature * specificHeatCapacity;
     }
 
     /**
@@ -137,7 +137,7 @@ public class CylinderTank {
      * @return The volume of the tank in liters.
      */
     public double calculateVolume() {
-        return volumeFormula * 1000;
+        return Math.PI * Math.pow(radius, 2) * height * 1000;
     }
 
     /**
