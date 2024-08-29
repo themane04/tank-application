@@ -5,6 +5,10 @@ import ch.iet_gibb.oecoheat.utils.ErrorMessage;
 /**
  * The LiterTank class represents a water storage tank with a known volume in liters.
  * It provides methods to calculate the stored energy and the number of days the tank can provide heating.
+ *
+ * @author Marjan Tomev
+ * @version 1.0
+ * @since 08.29.2024
  */
 public class LiterTank {
     protected String name;
@@ -45,6 +49,8 @@ public class LiterTank {
 
     /**
      * Setter for the name of the tank.
+     *
+     * @param name The name of the tank.
      */
     public void setName(String name) {
         this.name = name;
@@ -59,6 +65,8 @@ public class LiterTank {
 
     /**
      * Setter for the volume of the tank in liters.
+     *
+     * @param volumeInLiters The volume of the tank in liters.
      */
     public void setVolumeInLiters(double volumeInLiters) {
         this.volumeInLiters = volumeInLiters;
@@ -73,6 +81,8 @@ public class LiterTank {
 
     /**
      * Setter for the temperature the water can reach in Celsius.
+     *
+     * @param temperature The temperature the water can reach in Celsius.
      */
     public void setTemperature(double temperature) {
         this.temperature = temperature;
@@ -87,6 +97,8 @@ public class LiterTank {
 
     /**
      * Setter for the energy required per day in kWh.
+     *
+     * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
         this.heatedEnergyPerDay = heatedEnergyPerDay;
@@ -113,7 +125,8 @@ public class LiterTank {
     }
 
     /**
-     * Returns a string representation of the tank.
+     * Returns a string representation of the L
+     * @return The string representation of the tank.
      */
     @Override
     public String toString() {

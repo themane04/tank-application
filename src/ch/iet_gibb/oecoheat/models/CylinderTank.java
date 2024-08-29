@@ -5,6 +5,10 @@ import ch.iet_gibb.oecoheat.utils.ErrorMessage;
 /**
  * The CylinderTank class represents a cylindrical water storage tank.
  * It provides methods to calculate the stored energy and the number of days the tank can provide heating.
+ *
+ * @author Marjan Tomev
+ * @version 1.0
+ * @since 08.29.2024
  */
 public class CylinderTank {
     protected String name;
@@ -48,6 +52,8 @@ public class CylinderTank {
 
     /**
      * Setter for the name of the tank.
+     *
+     * @param name The name of the tank.
      */
     public void setName(String name) {
         this.name = name;
@@ -62,6 +68,8 @@ public class CylinderTank {
 
     /**
      * Setter for the radius of the tank.
+     *
+     * @param radius The radius of the tank in meters.
      */
     public void setRadius(double radius) {
         this.radius = radius;
@@ -76,6 +84,8 @@ public class CylinderTank {
 
     /**
      * Setter for the height of the tank.
+     *
+     * @param height The height of the tank in meters.
      */
     public void setHeight(double height) {
         this.height = height;
@@ -90,6 +100,8 @@ public class CylinderTank {
 
     /**
      * Setter for the temperature of the tank.
+     *
+     * @param temperature The temperature the water can reach in Celsius.
      */
     public void setTemperature(double temperature) {
         this.temperature = temperature;
@@ -104,6 +116,8 @@ public class CylinderTank {
 
     /**
      * Setter for the heated energy per day.
+     *
+     * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
         this.heatedEnergyPerDay = heatedEnergyPerDay;
@@ -141,7 +155,10 @@ public class CylinderTank {
     }
 
     /**
-     * Returns a string representation of the CylinderTank object.
+     * Returns a string representation of the CylinderTank object, including its name, volume,
+     * stored energy, and heating days.
+     *
+     * @return The string representation of the CylinderTank object.
      */
     @Override
     public String toString() {

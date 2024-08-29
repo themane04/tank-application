@@ -5,6 +5,10 @@ import ch.iet_gibb.oecoheat.utils.ErrorMessage;
 /**
  * The CuboidTank class represents a cuboid-shaped water storage tank.
  * It provides methods to calculate the stored energy and the number of days the tank can provide heating.
+ *
+ * @author Marjan Tomev
+ * @version 1.0
+ * @since 08.29.2024
  */
 public class CuboidTank {
     protected String name;
@@ -52,6 +56,8 @@ public class CuboidTank {
 
     /**
      * Setter for the name of the tank.
+     *
+     * @param name The name of the tank.
      */
     public void setName(String name) {
         this.name = name;
@@ -66,6 +72,8 @@ public class CuboidTank {
 
     /**
      * Setter for the width of the cuboid tank.
+     *
+     * @param width The width of the tank in meters.
      */
     public void setWidth(double width) {
         this.width = width;
@@ -80,6 +88,8 @@ public class CuboidTank {
 
     /**
      * Setter for the height of the cuboid tank.
+     *
+     * @param height The height of the tank in meters.
      */
     public void setHeight(double height) {
         this.height = height;
@@ -94,6 +104,8 @@ public class CuboidTank {
 
     /**
      * Setter for the depth of the cuboid tank.
+     *
+     * @param depth The depth of the tank in meters.
      */
     public void setDepth(double depth) {
         this.depth = depth;
@@ -108,6 +120,8 @@ public class CuboidTank {
 
     /**
      * Setter for the temperature of the water in the tank.
+     *
+     * @param temperature The temperature the water can reach in Celsius.
      */
     public void setTemperature(double temperature) {
         this.temperature = temperature;
@@ -122,6 +136,8 @@ public class CuboidTank {
 
     /**
      * Setter for the heated energy per day.
+     *
+     * @param heatedEnergyPerDay The energy required per day in kWh.
      */
     public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
         this.heatedEnergyPerDay = heatedEnergyPerDay;
@@ -159,7 +175,10 @@ public class CuboidTank {
     }
 
     /**
-     * Returns a string representation of the CuboidTank object.
+     * Returns a string representation of the CuboidTank object, including its name, volume,
+     * stored energy, and heating days.
+     *
+     * @return The string representation of the CuboidTank object.
      */
     @Override
     public String toString() {

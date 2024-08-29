@@ -7,6 +7,10 @@ import ch.iet_gibb.oecoheat.models.LiterTank;
 /**
  * The main class for the HeatCalculator application.
  * This class serves as the entry point for the application.
+ *
+ * @author Marjan Tomev
+ * @version 1.0
+ * @since 08.29.2024
  */
 public class HeatCalculatorApp {
 
