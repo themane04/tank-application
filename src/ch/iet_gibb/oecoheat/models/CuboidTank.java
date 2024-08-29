@@ -161,9 +161,7 @@ public class CuboidTank {
      * @return The stored energy in the tank in kilojoules (kJ).
      */
     public double calculateStoredEnergy() {
-        double volume = calculateVolume();
-        double specificHeatCapacity = 4.18;
-        return volume * temperature * specificHeatCapacity;
+        return calculateVolume() * temperature * 4.18;
     }
 
     /**
