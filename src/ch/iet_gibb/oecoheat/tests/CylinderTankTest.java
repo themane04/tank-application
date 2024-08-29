@@ -10,6 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Test class for the CylinderTank model class.
  * This class tests the methods of the CylinderTank class.
+ *
+ * @author Marjan Tomev
+ * @version 1.0
+ * @since 08.29.2024
  */
 class CylinderTankTest {
 
