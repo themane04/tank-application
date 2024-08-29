@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * Test class for the CuboidTank model class.
+ * This class tests the methods of the CuboidTank class.
+ */
 class CuboidTankTest {
 
     private CuboidTank tank;

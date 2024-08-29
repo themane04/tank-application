@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * Test class for the LiterTank model class.
+ * This class tests the methods of the LiterTank class.
+ */
 class LiterTankTest {
 
     private LiterTank tank;
