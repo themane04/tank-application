@@ -2,7 +2,6 @@ package ch.iet_gibb.oecoheat.application;
 
 import ch.iet_gibb.oecoheat.models.CuboidTank;
 import ch.iet_gibb.oecoheat.models.CylinderTank;
-import ch.iet_gibb.oecoheat.models.LiterTank;
 
 import static ch.iet_gibb.oecoheat.utils.Color.*;
 
@@ -62,24 +61,6 @@ public class HeatCalculatorApp {
 
         System.out.println(ANSI_WHITE + "\nCylinderTank toString Output:" + ANSI_RESET);
         System.out.println(ANSI_CYAN + "\n" + cylinderTank + ANSI_RESET);
-
-        System.out.println(tankSeparator);
-
-        // Create a LiterTank object and set its parameters
-        LiterTank literTank = new LiterTank("Liter Tank", 5000, 26, 4);
-        literTank.setName("Backup Water Reservoir");
-        literTank.setVolumeInLiters(5500);
-        literTank.setTemperature(28);
-        literTank.setHeatedEnergyPerDay(5);
-
-        System.out.println(ANSI_BLUE + "\nLiterTank Parameters:" + ANSI_RESET);
-        System.out.println(ANSI_GREEN + "\nName: " + literTank.getName() + ANSI_RESET);
-        System.out.println(ANSI_GREEN + "Volume in Liters: " + literTank.getVolumeInLiters() + ANSI_RESET);
-        System.out.println(ANSI_GREEN + "Temperature: " + literTank.getTemperature() + ANSI_RESET);
-        System.out.println(ANSI_GREEN + "Heated Energy Per Day: " + literTank.getHeatedEnergyPerDay() + ANSI_RESET);
-
-        System.out.println(ANSI_WHITE + "\nLiterTank toString Output:" + ANSI_RESET);
-        System.out.println(ANSI_CYAN + "\n" + literTank + ANSI_RESET);
 
         System.out.println(tankSeparator);
     }

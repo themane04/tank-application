@@ -10,13 +10,10 @@ import ch.iet_gibb.oecoheat.utils.ErrorMessage;
  * @version 1.0
  * @since 08.29.2024
  */
-public class CuboidTank {
-    protected String name;
+public class CuboidTank extends Tank {
     protected double width;
     protected double height;
     protected double depth;
-    protected double temperature;
-    protected double heatedEnergyPerDay;
 
     /**
      * Constructor to initialize a CuboidTank object with the given parameters.
@@ -30,33 +27,15 @@ public class CuboidTank {
      */
     public CuboidTank(
             String name,
+            double temperature,
+            double heatedEnergyPerDay,
             double width,
             double height,
-            double depth,
-            double temperature,
-            double heatedEnergyPerDay) {
-        this.name = name;
+            double depth) {
+        super(name, temperature, heatedEnergyPerDay);
         this.width = width;
         this.height = height;
         this.depth = depth;
-        this.temperature = temperature;
-        this.heatedEnergyPerDay = heatedEnergyPerDay;
-    }
-
-    /**
-     * Getter for the name of the tank.
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Setter for the name of the tank.
-     *
-     * @param name The name of the tank.
-     */
-    public void setName(String name) {
-        this.name = name;
     }
 
     /**
@@ -117,6 +96,26 @@ public class CuboidTank {
     }
 
     /**
+     * Calculates the volume of the cuboid tank in liters.
+     *
+     * @return The volume of the tank in liters.
+     */
+    public double calculateVolume() {
+        return width * height * depth * 1000; // Liter conversion
+    }
+
+    /**
+     * Calculates the volume of the cuboid tank based on its dimensions, temperature,
+     * and the specific heat capacity of water.
+     *
+     * @return The stored energy in the tank in kilojoules (kJ).
+     */
+    @Override
+    public double calculateStoredEnergy() {
+        return calculateVolume() * temperature * 4.18;
+    }
+
+    /**
      * Getter for the temperature of the water in the tank.
      */
     public double getTemperature() {
@@ -155,16 +154,6 @@ public class CuboidTank {
     }
 
     /**
-     * Calculates the volume of the cuboid tank based on its dimensions, temperature,
-     * and the specific heat capacity of water.
-     *
-     * @return The stored energy in the tank in kilojoules (kJ).
-     */
-    public double calculateStoredEnergy() {
-        return calculateVolume() * temperature * 4.18;
-    }
-
-    /**
      * Calculates the number of days the tank can provide heating based on the stored energy
      * and the daily energy requirement.
      *
@@ -172,15 +161,6 @@ public class CuboidTank {
      */
     public double calculateHeatingDays() {
         return calculateStoredEnergy() / (heatedEnergyPerDay * 3600);
-    }
-
-    /**
-     * Calculates the volume of the cuboid tank in liters.
-     *
-     * @return The volume of the tank in liters.
-     */
-    public double calculateVolume() {
-        return width * height * depth * 1000; // Liter conversion
     }
 
     /**

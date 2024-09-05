@@ -10,12 +10,9 @@ import ch.iet_gibb.oecoheat.utils.ErrorMessage;
  * @version 1.0
  * @since 08.29.2024
  */
-public class CylinderTank {
-    protected String name;
+public class CylinderTank extends Tank {
     protected double radius;
     protected double height;
-    protected double temperature;
-    protected double heatedEnergyPerDay;
 
     /**
      * Constructor to initialize a CylinderTank object with the given parameters.
@@ -32,27 +29,9 @@ public class CylinderTank {
             double height,
             double temperature,
             double heatedEnergyPerDay) {
-        this.name = name;
+        super(name, temperature, heatedEnergyPerDay);
         this.radius = radius;
         this.height = height;
-        this.temperature = temperature;
-        this.heatedEnergyPerDay = heatedEnergyPerDay;
-    }
-
-    /**
-     * Getter for the name of the tank.
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Setter for the name of the tank.
-     *
-     * @param name The name of the tank.
-     */
-    public void setName(String name) {
-        this.name = name;
     }
 
     /**
@@ -94,6 +73,26 @@ public class CylinderTank {
     }
 
     /**
+     * Calculates the volume of the tank in liters.
+     *
+     * @return The volume of the tank in liters.
+     */
+    public double calculateVolume() {
+        return Math.PI * Math.pow(radius, 2) * height * 1000; // Liters conversion
+    }
+
+    /**
+     * Calculates the stored energy in the cylindrical tank based on its volume, temperature,
+     * and the specific heat capacity of water.
+     *
+     * @return The stored energy in the tank in kilojoules (kJ).
+     */
+    @Override
+    public double calculateStoredEnergy() {
+        return calculateVolume() * temperature * 4.18;
+    }
+
+    /**
      * Getter for the temperature of the tank.
      */
     public double getTemperature() {
@@ -132,18 +131,6 @@ public class CylinderTank {
     }
 
     /**
-     * Calculates the stored energy in the cylindrical tank based on its volume, temperature,
-     * and the specific heat capacity of water.
-     *
-     * @return The stored energy in the tank in kilojoules (kJ).
-     */
-    public double calculateStoredEnergy() {
-        double volume = calculateVolume();
-        double specificHeatCapacity = 4.18;
-        return volume * temperature * specificHeatCapacity;
-    }
-
-    /**
      * Calculates the number of days the tank can provide heating based on the stored energy
      * and the daily energy requirement.
      *
@@ -151,15 +138,6 @@ public class CylinderTank {
      */
     public double calculateHeatingDays() {
         return calculateStoredEnergy() / (heatedEnergyPerDay * 3600);
-    }
-
-    /**
-     * Calculates the volume of the tank in liters.
-     *
-     * @return The volume of the tank in liters.
-     */
-    public double calculateVolume() {
-        return Math.PI * Math.pow(radius, 2) * height * 1000;
     }
 
     /**
