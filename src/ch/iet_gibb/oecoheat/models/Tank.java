@@ -86,9 +86,12 @@ public abstract class Tank {
     /**
      * Method to calculate the number of days the tank can provide heating.
      * */
-    public double calculateHeatingDays() {
-        return calculateStoredEnergy() / (heatedEnergyPerDay * 3600);
-    }
+    public abstract double calculateHeatingDays();
+
+    /**
+     * Abstract method to get the etiquette of the tank.
+     * */
+    public abstract String getLabel();
 
     /**
      * Returns a string representation of the Tank object, including its name, temperature, and heated energy per day.

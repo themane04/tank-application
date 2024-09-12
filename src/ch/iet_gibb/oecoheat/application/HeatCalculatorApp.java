@@ -31,7 +31,7 @@ public class HeatCalculatorApp {
         cuboidTank.setTemperature(27);
         cuboidTank.setHeatedEnergyPerDay(6);
 
-        System.out.println(ANSI_BLUE + "\nCuboidTank Parameters:" + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "\nCuboid Tank Parameters:" + ANSI_RESET);
         System.out.println(ANSI_GREEN + "\nName: " + cuboidTank.getName() + ANSI_RESET);
         System.out.println(ANSI_GREEN + "Width: " + cuboidTank.getWidth() + ANSI_RESET);
         System.out.println(ANSI_GREEN + "Height: " + cuboidTank.getHeight() + ANSI_RESET);
@@ -39,8 +39,11 @@ public class HeatCalculatorApp {
         System.out.println(ANSI_GREEN + "Temperature: " + cuboidTank.getTemperature() + ANSI_RESET);
         System.out.println(ANSI_GREEN + "Heated Energy Per Day: " + cuboidTank.getHeatedEnergyPerDay() + ANSI_RESET);
 
-        System.out.println(ANSI_WHITE + "\nCuboidTank toString Output:" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "\nCuboid Tank toString Output:" + ANSI_RESET);
         System.out.println(ANSI_CYAN + "\n" + cuboidTank + ANSI_RESET);
+
+        System.out.println(ANSI_WHITE + "\nCuboid Tank Etiquette:" + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "\n" + cuboidTank.getLabel() + ANSI_RESET);
 
         System.out.println(tankSeparator);
 
@@ -52,15 +55,18 @@ public class HeatCalculatorApp {
         cylinderTank.setTemperature(29);
         cylinderTank.setHeatedEnergyPerDay(8);
 
-        System.out.println(ANSI_BLUE + "\nCylinderTank Parameters:" + ANSI_RESET);
+        System.out.println(ANSI_BLUE + "\nCylinder Tank Parameters:" + ANSI_RESET);
         System.out.println(ANSI_GREEN + "\nName: " + cylinderTank.getName() + ANSI_RESET);
         System.out.println(ANSI_GREEN + "Radius: " + cylinderTank.getRadius() + ANSI_RESET);
         System.out.println(ANSI_GREEN + "Height: " + cylinderTank.getHeight() + ANSI_RESET);
         System.out.println(ANSI_GREEN + "Temperature: " + cylinderTank.getTemperature() + ANSI_RESET);
         System.out.println(ANSI_GREEN + "Heated Energy Per Day: " + cylinderTank.getHeatedEnergyPerDay() + ANSI_RESET);
 
-        System.out.println(ANSI_WHITE + "\nCylinderTank toString Output:" + ANSI_RESET);
+        System.out.println(ANSI_WHITE + "\nCylinder Tank toString Output:" + ANSI_RESET);
         System.out.println(ANSI_CYAN + "\n" + cylinderTank + ANSI_RESET);
+
+        System.out.println(ANSI_WHITE + "\nCylinder Tank Etiquette:" + ANSI_RESET);
+        System.out.println(ANSI_CYAN + "\n" + cylinderTank.getLabel() + ANSI_RESET);
 
         System.out.println(tankSeparator);
     }

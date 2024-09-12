@@ -159,8 +159,21 @@ public class CuboidTank extends Tank {
      *
      * @return The number of days the tank can provide heating.
      */
+    @Override
     public double calculateHeatingDays() {
         return calculateStoredEnergy() / (heatedEnergyPerDay * 3600);
+    }
+
+    /**
+     * Returns a string representation of the CuboidTank object, including its name, volume, and temperature.
+     *
+     * @return The string representation of the CuboidTank object.
+     */
+    @Override
+    public String getLabel() {
+        return "Name: " + name + "\n" +
+                "Volume: " + calculateVolume() + " L\n" +
+                "Temperature: " + temperature + " °C\n";
     }
 
     /**
@@ -172,7 +185,7 @@ public class CuboidTank extends Tank {
     @Override
     public String toString() {
         return "Tank Name: " + name + "\n" +
-                "Capacity: " + calculateVolume() + " liters\n" +
+                "Capacity: " + calculateVolume() + " L\n" +
                 "Stored Energy: " + calculateStoredEnergy() / 3600 + " kWh\n" + // kWh conversion
                 "Number of Heating Days: " + calculateHeatingDays() + " days\n";
     }

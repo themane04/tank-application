@@ -23,12 +23,7 @@ public class CylinderTank extends Tank {
      * @param temperature        The temperature the water can reach in Celsius.
      * @param heatedEnergyPerDay The energy required per day in kWh.
      */
-    public CylinderTank(
-            String name,
-            double radius,
-            double height,
-            double temperature,
-            double heatedEnergyPerDay) {
+    public CylinderTank(String name, double radius, double height, double temperature, double heatedEnergyPerDay) {
         super(name, temperature, heatedEnergyPerDay);
         this.radius = radius;
         this.height = height;
@@ -136,8 +131,14 @@ public class CylinderTank extends Tank {
      *
      * @return The number of days the tank can provide heating.
      */
+    @Override
     public double calculateHeatingDays() {
         return calculateStoredEnergy() / (heatedEnergyPerDay * 3600);
+    }
+
+    @Override
+    public String getLabel() {
+        return "Name: " + name + "\n" + "Volume: " + calculateVolume() + " L\n" + "Temperature: " + temperature + "°C\n";
     }
 
     /**
@@ -148,9 +149,9 @@ public class CylinderTank extends Tank {
      */
     @Override
     public String toString() {
-        return "Tank Name: " + name + "\n" +
-                "Capacity: " + calculateVolume() + " liters\n" +
-                "Stored Energy: " + calculateStoredEnergy() / 3600 + " kWh\n" + // kWh conversion
+        return "Tank Name: " + name +
+                "\n" + "Capacity: " + calculateVolume() +
+                " L\n" + "Stored Energy: " + calculateStoredEnergy() / 3600 + " kWh\n" + // kWh conversion
                 "Number of Heating Days: " + calculateHeatingDays() + " days\n";
     }
 }
