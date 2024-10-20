@@ -17,18 +17,32 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
+
+/**
+ * The TankView class represents the view of a tank.
+ * It displays the tank's title and properties.
+ * The properties are displayed in a list.
+ * The view is implemented as a JavaFX application.
+ * The view can be started by calling the start method.
+ * The view is initialized with a tank model.
+ * The view is a subclass of the JavaFX Application class.
+ * The view is a subclass of the Java
+ *
+ * @author Marjan Tomev
+ * @version 1.0
+ * @since 08.29.2024
+ */
 public class TankView extends Application {
     protected VBox rootLayout;
     protected TankModel tankModel;
 
     public TankView(TankModel tank) {
         this.tankModel = tank;
-        this.rootLayout = new VBox(); // Or any other layout type
+        this.rootLayout = new VBox();
         initializeView();
     }
 
     private void initializeView() {
-        // Set up the UI components for displaying the tank properties
         Text title = new Text(tankModel.getTitle());
         ListView<String> propertiesList = new ListView<>();
         for (Property prop : tankModel.getProperties()) {
@@ -43,14 +57,11 @@ public class TankView extends Application {
 
     @Override
     public void start(Stage stage) {
-        // Set up the title label
         Label titleLabel = new Label(tankModel.getTitle());
         titleLabel.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
 
-        // Create TableView for properties
         TableView<Property> propertyTable = new TableView<>();
 
-        // Set up columns for Property Key and Value
         TableColumn<Property, String> keyColumn = new TableColumn<>("Property");
         keyColumn.setCellValueFactory(new PropertyValueFactory<>("key"));
 
@@ -60,16 +71,13 @@ public class TankView extends Application {
         propertyTable.getColumns().add(keyColumn);
         propertyTable.getColumns().add(valueColumn);
 
-        // Add tank properties to the table
         List<Property> properties = tankModel.getProperties();
         propertyTable.getItems().addAll(properties);
 
-        // Set up layout
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(15));
         layout.getChildren().addAll(titleLabel, propertyTable);
 
-        // Set up and show the scene
         Scene scene = new Scene(layout, 400, 300);
         stage.setScene(scene);
         stage.setTitle("Tank Information");
@@ -77,7 +85,6 @@ public class TankView extends Application {
     }
 
     public static void main(String[] args) {
-        // For testing, create a sample tank and launch the view
         TankModel sampleTank = new CuboidTank("Sample Cuboid Tank", 25, 5, 2, 2, 2);
         new TankView(sampleTank).start(new Stage());
     }

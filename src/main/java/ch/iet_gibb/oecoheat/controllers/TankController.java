@@ -13,6 +13,18 @@ import javafx.scene.Scene;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The TankController class is the controller of the tank application.
+ * It manages the tanks and the view.
+ * The controller is implemented as a JavaFX application.
+ * The controller can be started by calling the start method.
+ * The controller is initialized with a list of tank models.
+ * The controller is a subclass of the Java
+ *
+ * @author Marjan Tomev
+ * @version 1.0
+ * @since 08.29.2024
+ */
 public class TankController extends Application {
     protected TankView view;
     protected List<TankModel> tanks;
@@ -20,31 +32,24 @@ public class TankController extends Application {
     private VBox root;
 
     public TankController() {
-        // Initialize your tank models
         tanks = new ArrayList<>();
         tanks.add(new CuboidTank("Cuboid Tank", 25, 5, 2, 2, 2));
         tanks.add(new CylinderTank("Cylinder Tank", 22, 4, 3, 7));
 
-        // Set the initial tank view with the first tank in the list
         view = new TankView(tanks.get(currentTankIndex));
     }
 
     @Override
     public void start(Stage primaryStage) {
-        // Initialize the main layout
-        root = new VBox(10); // Use the instance variable directly
+        root = new VBox(10);
 
-        // Set up the button and its action
         Button nextTankButton = new Button("Next Tank");
-        nextTankButton.setOnAction(e -> showNextTank());
+        nextTankButton.setOnAction(_ -> showNextTank());
 
-        // Initialize the view for the first tank
         view.start(primaryStage);
 
-        // Add view layout and buttons to the main layout
         root.getChildren().addAll(view.getView(), nextTankButton);
 
-        // Set up the scene and show the stage
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Tank Viewer");
@@ -52,7 +57,6 @@ public class TankController extends Application {
     }
 
     private void showNextTank() {
-        // Cycle through the tank list and update the view
         currentTankIndex = (currentTankIndex + 1) % tanks.size();
         root.getChildren().set(0, new TankView(tanks.get(currentTankIndex)).getView());
     }
