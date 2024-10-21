@@ -19,11 +19,20 @@ import javafx.stage.Stage;
 public class TankApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
+        // Create an instance of the TankController which manages the tanks and the view
         TankController tankController = new TankController();
+
+        // Start the TankController, which will handle setting up the view and displaying it on the stage
         tankController.start(primaryStage);
     }
 
+    /**
+     * The main method for launching the JavaFX application.
+     *
+     * @param args Command line arguments (not used in this application).
+     */
     public static void main(String[] args) {
+        // Launch the JavaFX application
         launch(args);
     }
 }

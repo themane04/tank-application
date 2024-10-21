@@ -33,6 +33,9 @@ public abstract class Tank implements TankModel {
         this.heatedEnergyPerDay = heatedEnergyPerDay;
     }
 
+    /**
+     * Method to get the properties of the tank.
+     */
     @Override
     public List<Property> getProperties() {
         List<Property> properties = new ArrayList<>();
@@ -43,6 +46,9 @@ public abstract class Tank implements TankModel {
     }
 
 
+    /**
+     * Abstract method to get the title of the tank.
+     */
     @Override
     public abstract String getTitle();
 

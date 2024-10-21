@@ -1,0 +1,128 @@
+@startuml
+interface ch.iet_gibb.oecoheat.interfaces.TankModel {
+~ String getTitle()
+~ List<Property> getProperties()
+}
+
+class ch.iet_gibb.oecoheat.utils.ErrorMessage {
++ {static} String temperatureRange
++ {static} String heatedEnergyPerDayRange
++ {static} String widthRange
++ {static} String heightRange
++ {static} String depthRange
++ {static} String radiusRange
++ {static} String volumeRange
+}
+
+class ch.iet_gibb.oecoheat.models.Property {
+# String key
+# String value
++ <<Create>> Property(String,String)
++ String getKey()
++ String getValue()
+}
+
+
+class ch.iet_gibb.oecoheat.models.CuboidTank {
+# double width
+# double height
+# double depth
++ <<Create>> CuboidTank(String,double,double,double,double,double)
++ String getTitle()
++ List<Property> getProperties()
++ double getWidth()
++ void setWidth(double)
++ double getHeight()
++ void setHeight(double)
++ double getDepth()
++ void setDepth(double)
++ double calculateVolume()
++ double calculateStoredEnergy()
++ double getTemperature()
++ void setTemperature(double)
++ double getHeatedEnergyPerDay()
++ void setHeatedEnergyPerDay(double)
++ double calculateHeatingDays()
++ String getLabel()
++ String toString()
+}
+
+
+class ch.iet_gibb.oecoheat.models.CylinderTank {
+# double radius
+# double height
++ <<Create>> CylinderTank(String,double,double,double,double)
++ String getTitle()
++ List<Property> getProperties()
++ double getRadius()
++ void setRadius(double)
++ double getHeight()
++ void setHeight(double)
++ double calculateVolume()
++ double calculateStoredEnergy()
++ double getTemperature()
++ void setTemperature(double)
++ double getHeatedEnergyPerDay()
++ void setHeatedEnergyPerDay(double)
++ double calculateHeatingDays()
++ String getLabel()
++ String toString()
+}
+
+
+abstract class ch.iet_gibb.oecoheat.models.Tank {
+# String name
+# double temperature
+# double heatedEnergyPerDay
++ <<Create>> Tank(String,double,double)
++ List<Property> getProperties()
++ {abstract}String getTitle()
++ String getName()
++ void setName(String)
++ double getTemperature()
++ void setTemperature(double)
++ double getHeatedEnergyPerDay()
++ void setHeatedEnergyPerDay(double)
++ {abstract}double calculateStoredEnergy()
++ {abstract}double calculateHeatingDays()
++ {abstract}String getLabel()
++ String toString()
+}
+
+
+class ch.iet_gibb.oecoheat.TankApplication {
++ void start(Stage)
++ {static} void main(String[])
+}
+
+class ch.iet_gibb.oecoheat.controllers.TankController {
+# TankView view
+# List<TankModel> tanks
+- int currentTankIndex
+- VBox root
++ <<Create>> TankController()
++ void start(Stage)
+- void showNextTank()
+}
+
+
+class ch.iet_gibb.oecoheat.views.TankView {
+# VBox rootLayout
+# TankModel tankModel
++ <<Create>> TankView(TankModel)
+- void initializeView()
++ VBox getView()
++ void start(Stage)
++ {static} void main(String[])
+}
+
+
+
+
+ch.iet_gibb.oecoheat.models.Tank <|-- ch.iet_gibb.oecoheat.models.CuboidTank
+ch.iet_gibb.oecoheat.models.Tank <|-- ch.iet_gibb.oecoheat.models.CylinderTank
+ch.iet_gibb.oecoheat.interfaces.TankModel <|.. ch.iet_gibb.oecoheat.models.Tank
+javafx.application.Application <|-- ch.iet_gibb.oecoheat.TankApplication
+javafx.application.Application <|-- ch.iet_gibb.oecoheat.controllers.TankController
+javafx.application.Application <|-- ch.iet_gibb.oecoheat.views.TankView
+@enduml
