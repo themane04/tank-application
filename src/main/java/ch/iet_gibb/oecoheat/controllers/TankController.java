@@ -1,44 +1,53 @@
 package ch.iet_gibb.oecoheat.controllers;
 
-import ch.iet_gibb.oecoheat.models.Tank;
+import ch.iet_gibb.oecoheat.interfaces.ControllerViewInterface;
+import ch.iet_gibb.oecoheat.interfaces.TankModel;
+import ch.iet_gibb.oecoheat.views.AlternativeTankView;
 import ch.iet_gibb.oecoheat.views.TankView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.stage.Stage;
 
 import java.util.List;
 
 public class TankController implements EventHandler<ActionEvent> {
-    protected List<Tank> tanks; // List of tanks (models)
-    private int currentTankIndex = 0; // Index of the currently displayed tank
-    public TankView view; // The view to display the tanks
+    protected List<TankModel> tanks;
+    private int currentTankIndex = 0;
+    protected ControllerViewInterface view;
+    protected Stage stage;
 
-    public TankController(List<Tank> tanks, TankView view) {
+    public TankController(List<TankModel> tanks, Stage stage) {
         this.tanks = tanks;
-        this.view = view;
+        this.stage = stage;
     }
 
-    /**
-     * Starts the view by displaying the first tank.
-     */
-    public void start() {
-        // Pass the list of properties to the view
-        view.updateView(tanks.get(currentTankIndex).getProperties());
+    public void setView(ControllerViewInterface view) {
+        this.view = view; // Now the controller works with any view implementing the interface
     }
 
-    /**
-     * Handles the event for showing the next tank.
-     * This method is called when the user clicks the "Next Tank" button.
-     */
+    public void startView() {
+        view.startView(tanks.get(currentTankIndex)); // Start the view with the first tank
+    }
+
     @Override
     public void handle(ActionEvent event) {
         showNextTank();
     }
 
-    /**
-     * Cycles through the list of tanks and updates the view with the next tank.
-     */
     private void showNextTank() {
         currentTankIndex = (currentTankIndex + 1) % tanks.size();
-        view.updateView(tanks.get(currentTankIndex).getProperties());
+        view.startView(tanks.get(currentTankIndex)); // Show the next tank in the view
+    }
+
+    public void switchToAlternativeView() {
+        AlternativeTankView alternativeView = new AlternativeTankView(stage, this);
+        setView(alternativeView);
+        startView(); // Show the alternative view with the current tank
+    }
+
+    public void switchToNormalView() {
+        view = new TankView(stage, this);
+        startView(); // Show the normal view with the current tank
     }
 }
+

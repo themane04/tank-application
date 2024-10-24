@@ -10,6 +10,7 @@ module com.example.heatcalculator {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
     opens ch.iet_gibb.oecoheat to javafx.fxml;
     exports ch.iet_gibb.oecoheat;
