@@ -12,8 +12,6 @@ import java.util.List;
  * @since 1.0
  */
 public interface TankModel {
-    // Method to retrieve the title of the tank, used in the view
-    String getTitle();
     // Method to retrieve a list of properties (key-value pairs) describing the tank
     List<Property> getProperties();
 }

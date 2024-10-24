@@ -1,7 +1,6 @@
 package ch.iet_gibb.oecoheat.models;
 
 import ch.iet_gibb.oecoheat.utils.ErrorMessage;
-import ch.iet_gibb.oecoheat.models.Property;
 
 import java.util.List;
 
@@ -30,11 +29,6 @@ public class CylinderTank extends Tank {
         super(name, temperature, heatedEnergyPerDay);
         this.radius = radius;
         this.height = height;
-    }
-
-    @Override
-    public String getTitle() {
-        return "Cylinder Tank";
     }
 
     @Override

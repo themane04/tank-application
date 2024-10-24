@@ -1,8 +1,15 @@
 package ch.iet_gibb.oecoheat;
 
 import ch.iet_gibb.oecoheat.controllers.TankController;
+import ch.iet_gibb.oecoheat.models.CuboidTank;
+import ch.iet_gibb.oecoheat.models.CylinderTank;
+import ch.iet_gibb.oecoheat.models.Tank;
+import ch.iet_gibb.oecoheat.views.TankView;
 import javafx.application.Application;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The TankApplication class is the main class of the tank application.
@@ -19,20 +26,33 @@ import javafx.stage.Stage;
 public class TankApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
-        // Create an instance of the TankController which manages the tanks and the view
-        TankController tankController = new TankController();
+        // Create some sample tanks
+        List<Tank> tanks = createSampleTanks();
 
-        // Start the TankController, which will handle setting up the view and displaying it on the stage
-        tankController.start(primaryStage);
+        // Create the controller and link it to the tanks
+        // Create the view, passing both the stage and the controller
+        TankController controller = new TankController(tanks, null);
+
+        // Now link the view to the controller
+        controller.view = new TankView(primaryStage, controller);
+
+        // Start the controller (which starts the first tank in the view)
+        controller.start();
     }
 
     /**
-     * The main method for launching the JavaFX application.
+     * Creates sample tank data to be used in the application.
      *
-     * @param args Command line arguments (not used in this application).
+     * @return a list of tanks.
      */
+    private List<Tank> createSampleTanks() {
+        List<Tank> tanks = new ArrayList<>();
+        tanks.add(new CuboidTank("Cuboid Tank", 25, 5, 2, 2, 2));
+        tanks.add(new CylinderTank("Cylinder Tank", 22, 4, 3, 7));
+        return tanks;
+    }
+
     public static void main(String[] args) {
-        // Launch the JavaFX application
-        launch(args);
+        launch(args); // Launches the JavaFX application
     }
 }

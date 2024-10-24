@@ -1,7 +1,6 @@
 package ch.iet_gibb.oecoheat.models;
 
 import ch.iet_gibb.oecoheat.utils.ErrorMessage;
-import ch.iet_gibb.oecoheat.models.Property;
 
 import java.util.List;
 
@@ -39,11 +38,6 @@ public class CuboidTank extends Tank {
         this.width = width;
         this.height = height;
         this.depth = depth;
-    }
-
-    @Override
-    public String getTitle() {
-        return "Cuboid Tank";
     }
 
     @Override

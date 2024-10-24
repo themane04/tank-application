@@ -45,13 +45,6 @@ public abstract class Tank implements TankModel {
         return properties;
     }
 
-
-    /**
-     * Abstract method to get the title of the tank.
-     */
-    @Override
-    public abstract String getTitle();
-
     /**
      * Getter for the name of the tank.
      */
