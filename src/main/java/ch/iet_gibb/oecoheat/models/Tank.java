@@ -1,7 +1,6 @@
 package ch.iet_gibb.oecoheat.models;
 
 import ch.iet_gibb.oecoheat.interfaces.TankModel;
-import ch.iet_gibb.oecoheat.utils.ErrorMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,58 +45,6 @@ public abstract class Tank implements TankModel {
     }
 
     /**
-     * Getter for the name of the tank.
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Setter for the name of the tank.
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for the temperature of the tank.
-     */
-    public double getTemperature() {
-        return temperature;
-    }
-
-    /**
-     * Setter for the temperature of the tank.
-     *
-     * @param temperature The temperature the water can reach in Celsius.
-     */
-    public void setTemperature(double temperature) {
-        if (temperature < 1 || temperature > 30) {
-            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
-        }
-        this.temperature = temperature;
-    }
-
-    /**
-     * Getter for the heated energy per day of the tank.
-     */
-    public double getHeatedEnergyPerDay() {
-        return heatedEnergyPerDay;
-    }
-
-    /**
-     * Setter for the heated energy per day of the tank.
-     *
-     * @param heatedEnergyPerDay The energy required per day in kWh.
-     */
-    public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
-        if (heatedEnergyPerDay <= 0) {
-            throw new IllegalArgumentException("Heated energy per day must be greater than 0.");
-        }
-        this.heatedEnergyPerDay = heatedEnergyPerDay;
-    }
-
-    /**
      * Abstract method to calculate the stored energy in the tank.
      */
     public abstract double calculateStoredEnergy();
@@ -106,6 +53,11 @@ public abstract class Tank implements TankModel {
      * Method to calculate the number of days the tank can provide heating.
      */
     public abstract double calculateHeatingDays();
+
+    /**
+     * Abstract method to calculate the volume of the tank.
+     */
+    public abstract double calculateVolume();
 
     /**
      * Abstract method to get the etiquette of the tank.

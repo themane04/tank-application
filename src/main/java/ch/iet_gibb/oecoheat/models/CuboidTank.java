@@ -1,6 +1,5 @@
 package ch.iet_gibb.oecoheat.models;
 
-import ch.iet_gibb.oecoheat.utils.ErrorMessage;
 
 import java.util.List;
 
@@ -50,67 +49,11 @@ public class CuboidTank extends Tank {
     }
 
     /**
-     * Getter for the width of the cuboid tank.
-     */
-    public double getWidth() {
-        return width;
-    }
-
-    /**
-     * Setter for the width of the cuboid tank.
-     *
-     * @param width The width of the tank in meters.
-     */
-    public void setWidth(double width) {
-        if (width <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.widthRange);
-        }
-        this.width = width;
-    }
-
-    /**
-     * Getter for the height of the cuboid tank.
-     */
-    public double getHeight() {
-        return height;
-    }
-
-    /**
-     * Setter for the height of the cuboid tank.
-     *
-     * @param height The height of the tank in meters.
-     */
-    public void setHeight(double height) {
-        if (height <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.heightRange);
-        }
-        this.height = height;
-    }
-
-    /**
-     * Getter for the depth of the cuboid tank.
-     */
-    public double getDepth() {
-        return depth;
-    }
-
-    /**
-     * Setter for the depth of the cuboid tank.
-     *
-     * @param depth The depth of the tank in meters.
-     */
-    public void setDepth(double depth) {
-        if (depth <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.depthRange);
-        }
-        this.depth = depth;
-    }
-
-    /**
      * Calculates the volume of the cuboid tank in liters.
      *
      * @return The volume of the tank in liters.
      */
+    @Override
     public double calculateVolume() {
         return width * height * depth * 1000; // Liter conversion
     }
@@ -124,44 +67,6 @@ public class CuboidTank extends Tank {
     @Override
     public double calculateStoredEnergy() {
         return calculateVolume() * temperature * 4.18;
-    }
-
-    /**
-     * Getter for the temperature of the water in the tank.
-     */
-    public double getTemperature() {
-        return temperature;
-    }
-
-    /**
-     * Setter for the temperature of the water in the tank.
-     *
-     * @param temperature The temperature the water can reach in Celsius.
-     */
-    public void setTemperature(double temperature) {
-        if (temperature <= 0 || temperature > 30) {
-            throw new IllegalArgumentException(ErrorMessage.temperatureRange);
-        }
-        this.temperature = temperature;
-    }
-
-    /**
-     * Getter for the heated energy per day.
-     */
-    public double getHeatedEnergyPerDay() {
-        return heatedEnergyPerDay;
-    }
-
-    /**
-     * Setter for the heated energy per day.
-     *
-     * @param heatedEnergyPerDay The energy required per day in kWh.
-     */
-    public void setHeatedEnergyPerDay(double heatedEnergyPerDay) {
-        if (heatedEnergyPerDay <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.heatedEnergyPerDayRange);
-        }
-        this.heatedEnergyPerDay = heatedEnergyPerDay;
     }
 
     /**
