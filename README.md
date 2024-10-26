@@ -3,6 +3,13 @@
 ## Overview
 This Java-based project features a heat calculation application for tanks. It supports different tank shapes, including cylindrical and cuboid, and calculates the required heat based on various parameters.
 
+## Alternative Interface with JavaFX
+For those interested in a graphical user interface, an alternative branch, **JavaFX_Interface**, is available. This branch enhances the application with a JavaFX-based UI, making it more interactive and user-friendly. Check out this branch for a different experience:
+```
+git checkout HeatCalculator4_2
+```
+or view it [here on GitHub](https://github.com/themane04/tank-application/tree/HeatCalculator4_2_2).
+
 ## Project Structure
 The project is organized into several directories:
 
