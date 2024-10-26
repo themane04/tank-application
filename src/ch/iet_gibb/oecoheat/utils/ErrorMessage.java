@@ -14,5 +14,4 @@ public class ErrorMessage {
     public static final String heightRange = "Height must be greater than zero.";
     public static final String depthRange = "Depth must be greater than zero.";
     public static final String radiusRange = "Radius must be greater than zero.";
-    public static final String volumeRange = "Volume must be greater than zero.";
 }

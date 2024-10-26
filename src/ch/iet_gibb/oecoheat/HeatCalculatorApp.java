@@ -1,9 +1,9 @@
-package ch.iet_gibb.oecoheat.application;
+package ch.iet_gibb.oecoheat;
 
 import ch.iet_gibb.oecoheat.models.CuboidTank;
 import ch.iet_gibb.oecoheat.models.CylinderTank;
 
-import static ch.iet_gibb.oecoheat.utils.Color.*;
+import static ch.iet_gibb.oecoheat.utils.Style.*;
 
 /**
  * The main class for the HeatCalculator application.
